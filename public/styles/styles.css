@@ -1,0 +1,59 @@
+.image:hover  {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.container-fluid {
+    background: linear-gradient(lightgoldenrodyellow, white);
+    font-family: "Tahoma";
+
+}
+
+ul {
+    list-style-type: none;
+}
+
+#header{
+    background: url("books.jpg") 0px -380px;
+    color: lightblue;
+}
+
+.text-muted {
+    color: lightyellow;
+}
+
+#file_container {
+    display: inline-block;
+    top: -30px;
+    background: linear-gradient(lightgoldenrodyellow, white);
+}
+
+.link{
+    font-family: "Tahoma";
+    color: darkblue;
+    font-size: 26px;
+    padding-top: 10px;
+}
+
+.link:hover {
+    text-decoration: none;
+    color:  cornflowerblue;
+    cursor: hand;
+}
+
+h2 {
+   color: darkblue;
+}
+
+
+.glyphicon {
+    font-size: 26px;
+    color: darkblue;
+    margin-right: 5px;
+}
+
+
+
+
+
