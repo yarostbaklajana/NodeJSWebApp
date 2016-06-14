@@ -1,0 +1,17 @@
+<ul>
+    <h2>Books</h2><br>
+    <% if (backDirection != null) { %>
+    <a href="<%=backDirection%>" class="glyphicon glyphicon-arrow-up"> GoUp</a>
+    <% } %>
+    <% for(var i = 0; i < dataList.length; i++) {%>
+    <li>
+        <% if (dataList[i].hasOwnProperty('directoryName')) { %>
+        <span class="glyphicon glyphicon-folder-close"></span><a class="link" data-path="<%=dataList[i].dirPath %>"><%= dataList[i].directoryName %></a>
+        <% } else {%>
+        <span class="glyphicon glyphicon-file"></span><a class="link" href="<%=dataList[i].filePath %>" target="_blank"><%= dataList[i].fileName %></a>
+        <button data-comment="comment" class="btn btn-link comment-button">Comments</button>
+        <% } %>
+    </li>
+    <% } %>
+</ul>
+
