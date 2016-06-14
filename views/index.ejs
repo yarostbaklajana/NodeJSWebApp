@@ -5,36 +5,21 @@
 <link rel="stylesheet" href="/styles/styles.css">
 </head>
 <body>
-	<div class="container-fluid">
-		<div id='header' class="jumbotron">
-			<h1>File Storage</h1>
-			<h2 class="text-muted"> Load your files. View files of other users. Write overview</h2><br>
-			<ul class="nav nav-pills">
-				<li role="presentation"><a href="#">Home</a></li>
-				<li role="presentation"  class="active"><a href="/">Books</a></li>
-				<li role="presentation"><a href="#">Messages</a></li>
-			</ul>
+		<div id="main" class="container-fluid">
+			<div id='header' class="jumbotron">
+				<h1>File Storage</h1>
+				<h2 class="text-muted">View files of other users. Write overview</h2><br>
+				<ul class="nav nav-pills">
+					<li role="presentation"><a href="#">Home</a></li>
+					<li role="presentation"  class="active"><a href="/">Books</a></li>
+					<li role="presentation"><a href="#">Messages</a></li>
+				</ul>
+			</div>
+
+			<div class="col-md-12" id="directory-container"><% include directorylist.ejs %></div>
 		</div>
-
-		<div class="col-md-12" id="file_container">
-			<ul>
-				<h2>Books</h2><br>
-				<% if (backDirection != null) { %>
-					<a href="<%=backDirection%>" class="glyphicon glyphicon-arrow-up"> GoUp</a>
-				<% } %>
-				<% for(var i = 0; i < dataList.length; i++) {%>
-				<li>
-					<% if (dataList[i].hasOwnProperty('directoryName')) { %>
-						<span class="glyphicon glyphicon-folder-close"></span><a class="link" data-path="<%=dataList[i].dirPath %>"><%= dataList[i].directoryName %></a>
-					<% } else {%>
-						<span class="glyphicon glyphicon-file"></span><a class="link" href="<%=dataList[i].filePath %>" target="_blank"><%= dataList[i].fileName %></a>
-					<% } %>
-
-                </li>
-				<% } %>
-			</ul>
-		</div>
-
-	</div>
- <script src="/main.js"></script>
+		<div class="fading-container" id="fading"></div>
+		<div data-comment="true"><% include commentform.ejs %></div>
+ 	<script src="/main.js"></script>
+	<script src="/modalmanager.js"></script>
 </body>
