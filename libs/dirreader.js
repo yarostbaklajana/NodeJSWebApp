@@ -10,7 +10,7 @@ module.exports = function getDataList(forwardPath, callback, upPath) {
         upPath = null;
         absolutePath = forwardPath;
     } else {
-        upPath = path.relative(path.join(root, forwardPath), path.relative(path.join('../', forwardPath), root)); //returns '..'
+        upPath = path.relative(root, path.resolve(path.join(root, forwardPath), '../'));
         console.log(upPath)
         absolutePath = path.join(root, forwardPath);
     }
