@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <head>
-<title>Welcome</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"/>
-<link rel="stylesheet" href="/styles/styles.css">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/styles/styles.css">
 </head>
 <body>
-		<div id="main" class="container-fluid">
-			<div id='header' class="jumbotron">
-				<h1>File Storage</h1>
-				<h2 class="text-muted">View files of other users. Write overview</h2><br>
-				<ul class="nav nav-pills">
-					<li role="presentation"><a href="#">Home</a></li>
-					<li role="presentation"  class="active"><a href="/">Books</a></li>
-					<li role="presentation"><a href="#">Messages</a></li>
-				</ul>
-			</div>
+<div id="main" class="container-fluid">
+    <div id='header' class="jumbotron">
+        <h1>File Storage</h1>
+        <h2 class="text-muted">View files of other users. Write overview</h2><br>
+        <ul class="nav nav-pills">
+            <li role="presentation"><a href="#">Home</a></li>
+            <li role="presentation" class="active"><a href="/">Books</a></li>
+            <li role="presentation"><a href="#">Messages</a></li>
+        </ul>
+    </div>
 
-			<div class="col-md-12" id="directory-container"><% include directorylist.ejs %></div>
-		</div>
-		<div class="fading-container" id="fading"></div>
-		<div data-comment="true"><% include commentform.ejs %></div>
- 	<script src="/main.js"></script>
-	<script src="/modalmanager.js"></script>
+    <div class="col-md-12" id="directory-container">
+        <% include directorylist.ejs %>
+    </div>
+</div>
+<div class="fading-container" id="fading"></div>
+<div>
+    <% include commentform.ejs %>
+</div>
+
+<script src="/modalmanager.js"></script>
+<script src="/main.js"></script>
 </body>
