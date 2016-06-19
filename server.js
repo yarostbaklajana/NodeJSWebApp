@@ -8,6 +8,7 @@ var dirreader = require('./libs/dirreader');
 var root = require('./appConstants/rootConstant').ROOT;
 
 
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
 
@@ -18,16 +19,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(root));
 
 router.get('/', function (req, res) {
-  dirreader(root,function(err, fileArr, upPath) {
+  dirreader('' ,function(err, fileArr, upPath) {
     res.render('index.ejs', {dataList: fileArr, backDirection: upPath});
   });
 });
 
 router.get('/getList', function(req, res) {
-
   dirreader(req.query.path, function(err, fileArr, upPath) {
     res.render('index.ejs', {dataList: fileArr, backDirection: upPath});
   });
+});
+
+router.get('/getComment', function(req, res) {
+  
 });
 
 http.createServer(app).listen(3000);

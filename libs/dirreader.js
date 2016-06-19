@@ -2,20 +2,19 @@ var fs = require('fs');
 var path = require('path');
 var root = require('../appConstants/rootConstant').ROOT;
 
-module.exports = function getDataList(forwardPath, callback, upPath) {
+module.exports = function getDataList(currentPath, callback, upPath) {
     var fileArr =[];
     var counter = 0;
-    var absolutePath = '';
-    if(forwardPath == root) {
+    var absolutePath = path.join(root, currentPath);
+    if(currentPath == '') {
+        console.log(currentPath);
         upPath = null;
-        absolutePath = forwardPath;
+
     } else {
-        upPath = path.relative(root, path.resolve(path.join(root, forwardPath), '../'));
-        console.log(upPath)
-        absolutePath = path.join(root, forwardPath);
+        upPath = path.relative(root, path.resolve(path.join(root, currentPath), '../'));
+
     }
 
-    
     fs.readdir(absolutePath, function(err, files) {
         if(err) {
             callback(err);
