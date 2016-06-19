@@ -32,7 +32,7 @@ window.commentModal = (function() {
         document.body.classList.toggle('modal-visible');
     }
 
-    function getModalWindow(target) {
+    function showModalWindow(target) {
         document.body.classList.toggle('modal-visible');
         commentWindow.setAttribute('data-commentedfilepath', target.dataset.commented);
         var xhttp = new XMLHttpRequest();
@@ -46,6 +46,6 @@ window.commentModal = (function() {
     }
 
     return {
-        showModal: getModalWindow
+        showModal: showModalWindow
     }
 })();
