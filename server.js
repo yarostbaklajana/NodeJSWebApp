@@ -6,6 +6,7 @@ var path = require('path');
 var ejs = require('ejs');
 var dirreader = require('./libs/dirreader');
 var root = require('./appConstants/rootConstant').ROOT;
+var commentRepository = require('./repositories/commentRepository');
 
 
 
@@ -30,8 +31,9 @@ router.get('/getList', function(req, res) {
   });
 });
 
-router.get('/getComment', function(req, res) {
-  
+router.get('/getComments', function(req, res) {
+  var comments = commentRepository.getComments(req.query.path);
+  req.render('comments.ejs', {comments: comments});
 });
 
 http.createServer(app).listen(3000);
