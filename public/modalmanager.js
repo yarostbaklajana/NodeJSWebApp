@@ -26,7 +26,7 @@ window.commentModal = (function() {
 
     function showModalWindow(target) {
         document.body.classList.toggle('modal-visible');
-        commentWindow.dataset.commentedfilepath = target.dataset.commented;
+        commentWindow.setAttribute('data-commentedfilepath', target.dataset.commented);
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if(xhttp.readyState == 4 && xhttp.status == 200) {
@@ -45,9 +45,9 @@ window.commentModal = (function() {
             }
         };
 
-        xhttp.open("POST", "/saveUserComment?path=" + commentWindow.dataset.commentedfilepath, true );
+        xhttp.open("POST", "/saveUserComment", true );
         xhttp.setRequestHeader('Content-type", "application/x-www-form-urlencoded');
-        xhttp.send('username=' + username.value + '&comment=' + comment.value);
+        xhttp.send('path=' + commentWindow.dataset.commentedfilepath + 'username=' + username.value + '&comment=' + comment.value);
     }
 
     return {
