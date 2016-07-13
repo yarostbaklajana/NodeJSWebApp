@@ -1,5 +1,5 @@
 (function (commentModal) {
-    var container = document.getElementById('main');
+    var container = document.getElementById('directory-container');
 
     function addClickHandlerToContainer() {
         container.addEventListener('click', function(e) {
