@@ -21,6 +21,7 @@ window.commentModal = (function() {
     });
 
     function hideModalWindow() {
+        commentField.innerHTML = '';
         document.body.classList.toggle('modal-visible');
     }
 
@@ -42,12 +43,15 @@ window.commentModal = (function() {
         xhttp.onreadystatechange = function() {
             if (xhttp.readyState == 4 && xhttp.status == 200) {
                 commentField.innerHTML = xhttp.responseText;
+                username.value = '';
+                comment.value = '';
             }
         };
 
         xhttp.open("POST", "/saveUserComment", true );
-        xhttp.setRequestHeader('Content-type", "application/x-www-form-urlencoded');
-        xhttp.send('path=' + commentWindow.dataset.commentedfilepath + 'username=' + username.value + '&comment=' + comment.value);
+        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhttp.send('path=' + commentWindow.dataset.commentedfilepath + '&username=' + username.value + '&comment=' + comment.value);
+
     }
 
     return {
