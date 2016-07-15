@@ -1,5 +1,11 @@
 <ul>
+
     <% if(fileComments.length > 0) { %>
-        <li><%=fileComments[0]%></li>
+        <% for (var i = 0; i < fileComments.length; i+= 1) { %>
+            <li>
+                <p>Author: <%=fileComments[i].username%></p>
+                <p>Comment: <%=fileComments[i].comment %></p>
+            </li>
+        <% } %>
     <% } %>
 </ul>
